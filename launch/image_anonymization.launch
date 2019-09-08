@@ -1,0 +1,24 @@
+<launch>
+  <!-- rosbag play -->
+  <arg name="bag"/>
+  <param name="use_sim_time" value="true"/>
+  <node pkg="rosbag" type="play" name="rosbag_play" args="--clock --pause --queue=1000 -r 0.5 $(arg bag)"/>
+
+  <node pkg="velodyne_pointcloud" type="cloud_node" name="cloud_node">
+    <param name="calibration" value="$(find velodyne_pointcloud)/params/VLP16db.yaml"/>
+    <param name="min_range" value="0.4"/>
+    <param name="max_range" value="130.0"/>
+  </node>
+  
+  <node pkg="image_anonymization" type="image_anonymization" name="image_anonymization"/>
+  
+  <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/ros.yaml"/>
+  <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/yolo-face.yaml"/>
+  <node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" output="screen">
+    <remap from="/camera/rgb/image_raw" to="/camera/rgb/image_raw" />
+    <param name="weights_path" value="$(find darknet_ros)/yolo_network_config/weights" />
+    <param name="config_path" value="$(find darknet_ros)/yolo_network_config/cfg" />
+  </node>
+  
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(env PWD)/image_anonymization.rviz"/>
+</launch>
