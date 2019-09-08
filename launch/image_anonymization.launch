@@ -13,7 +13,7 @@
   <node pkg="image_anonymization" type="image_anonymization" name="image_anonymization"/>
   
   <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/ros.yaml"/>
-  <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/yolo-face.yaml"/>
+  <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/yolov3-face.yaml"/>
   <node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" output="screen">
     <remap from="/camera/rgb/image_raw" to="/camera/rgb/image_raw" />
     <param name="weights_path" value="$(find darknet_ros)/yolo_network_config/weights" />
