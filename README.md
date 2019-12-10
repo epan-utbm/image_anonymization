@@ -5,6 +5,11 @@ README for using the image_anonymization
 
 This is a bash script that calls several ROS function packages, python smart recognition packages and launch files. The purpose is to mosaic the face and license plate of the video information of rosbag and re-record it back to a rosbag.
 
+----------------------------------------------------------------------
+git clone 
+  
+----------------------------------------------------------------------
+
 
 1,Put the four packages BtoP and btop(bag to picture after mosaic on the face),PtoB and ptob(picture to bag) into ~ / catkin_ws / src.Then
 
