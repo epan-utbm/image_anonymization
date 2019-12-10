@@ -1,4 +1,7 @@
 # image_anonymization
+
+Credit:HongKun ZHENG
+
 YOLO-based image anonymization
 
 README for using the image_anonymization
