@@ -7,8 +7,10 @@ This is a bash script that calls several ROS function packages, python smart rec
 
 
 1,Put the four packages BtoP and btop(bag to picture after mosaic on the face),PtoB and ptob(picture to bag) into ~ / catkin_ws / src.Then
+
 ----------------------------------------------------------------------
   ~/catkin_ws$ catkin_make
+  
 ----------------------------------------------------------------------
 If an error is reported, check the environment configuration to see if OpenCV, roscpp, etc. are configured
 
@@ -35,8 +37,10 @@ Like yoloface ,my alpr-unconstrained source code has been changed.So replace  ~/
 
 
 6,After everything is configured, use
+
 ----------------------------------------------------------------------
 ~/privacy_coding$ bash go.sh path
+
 ----------------------------------------------------------------------
 Inside the path is the rosbag that needs to be processed. This code will recursively process all rosbags in the path.
 Please use absolute path
@@ -52,9 +56,10 @@ Face Detection
 
 We use the weights and the config from: https://github.com/sthanhng/yoloface
 
-    Download https://github.com/sthanhng/yoloface/tree/master/model-weights and put it into https://github.com/epan-utbm/image_anonymization/blob/master/launch/image_anonymization.launch#L19
+Download https://github.com/sthanhng/yoloface/tree/master/model-weights and put it into https://github.com/epan-utbm/image_anonymization/blob/master/launch/image_anonymization.launch#L19
 
-    Download https://github.com/sthanhng/yoloface/blob/master/cfg/yolov3-face.cfg and put it into https://github.com/epan-utbm/image_anonymization/blob/master/launch/image_anonymization.launch#L20
+
+Download https://github.com/sthanhng/yoloface/blob/master/cfg/yolov3-face.cfg and put it into https://github.com/epan-utbm/image_anonymization/blob/master/launch/image_anonymization.launch#L20
 
 License Plate Detection
 
