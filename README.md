@@ -6,7 +6,7 @@ README for using the image_anonymization
 This is a bash script that calls several ROS function packages, python smart recognition packages and launch files. The purpose is to mosaic the face and license plate of the video information of rosbag and re-record it back to a rosbag.
 
 ----------------------------------------------------------------------
-git clone 
+$git clone https://github.com/epan-utbm/image_anonymization.git
   
 ----------------------------------------------------------------------
 
