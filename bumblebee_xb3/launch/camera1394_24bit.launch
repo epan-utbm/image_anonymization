@@ -1,0 +1,14 @@
+<launch>
+<!-- <node pkg="nodelet" type="nodelet" name="camera_nodelet_manager" args="manager" output="screen"/> -->
+<!-- <node pkg="nodelet" type="nodelet" name="camera1394_nodelet" args="load camera1394/driver camera_nodelet_manager" output="screen"> -->
+<node pkg="camera1394" type="camera1394_node" name="camera1394_node" output="screen">
+    <param name="video_mode" value="format7_mode3" />
+    <param name="format7_color_coding" value="rgb8" />
+    <!-- <param name="format7_color_coding" value="raw16" /> -->
+    <param name="bayer_pattern" value="gbrg" />
+    <param name="bayer_method" value="" />
+    <param name="frame_id" value="camera_frame" />
+    <param name="frame_rate" value="15.0" />
+    <param name="iso_speed" value="800" />  
+</node>  
+</launch>

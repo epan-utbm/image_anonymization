@@ -1,0 +1,72 @@
+README for using the bumblebee_xb3 ros package
+
+0. If you don't have camera calibration files, you can use the ones in
+./calibration_files/ These need to be copied to the default directory
+where ros stores camera calibration files, usually ~/.ros/camera_info/
+
+1. Start ros:
+
+----------------------------------------------------------------------
+$ roscore
+----------------------------------------------------------------------
+
+2. In another terminal tab, launch the camera1394 driver node
+(Ctrl+Shift+Tab to launch a new terminal tab and Alt+tab_number to move to a tab quickly)
+
+-------------------------------------------------------------------------------------------------------------------
+$ roslaunch ~/catkin_ws/src/bumblebee_xb3/launch/camera1394_24bit.launch
+-------------------------------------------------------------------------------------------------------------------
+
+For reference, the contents of the above launch file. It starts a camera1394 node with some parameters.
+<!-- -*- mode: XML -*- -->
+<launch>
+<node pkg="camera1394" type="camera1394_node" name="camera1394_node" output="screen">
+    <param name="video_mode" value="format7_mode3" />
+    <param name="format7_color_coding" value="rgb8" />
+    <param name="bayer_pattern" value="gbrg" />
+    <param name="bayer_method" value="" />
+    <param name="frame_id" value="camera_frame" />
+    <param name="frame_rate" value="15.0" />
+    <param name="iso_speed" value="800" /> 
+</node> 
+</launch>
+
+once this node is launched, it will publish a interlaced (combined) bayered image which you can view by:
+-----------------------------------------------------------------------------------------------------
+$ rosrun rqt_image_view rqt_image_view image:=/camera/image_raw
+-----------------------------------------------------------------------------------------------------
+
+3. Next run the deinterlacer (& debayering) node (this package's node):
+Note that this node only does deinterlacing. debayering is handled by
+stereo_image_proc. 
+
+----------------------------------------------------------------------
+$ rosrun bumblebee_xb3 bumblebee_xb3_node
+----------------------------------------------------------------------
+
+Now running
+----------------------------------------------------------------------
+$ rostopic list
+----------------------------------------------------------------------
+should show you a lot more image streams, which you can again view with rqt_image_view
+
+4. Now start the stereo_image_proc node in any of the THREE stereo_camera namespaces, say:
+
+-------------------------------------------------------------------------------------
+$ ROS_NAMESPACE=/camera/stereo_camera_LC/ rosrun stereo_image_proc stereo_image_proc
+-------------------------------------------------------------------------------------
+
+You should see that the point cloud topic is now published
+/camera/stereo_camera_LC/points2
+
+5. To view the point cloud, start rviz:
+
+----------------------------------------------------------------------
+$ rosrun rviz rviz
+----------------------------------------------------------------------
+
+COMMENTS:
+stereo_image_proc uses a lot of cpu resources. consider using stereo_image_proc_gpu 
+when it becomes available. 
+
+Steps 1-4 can be combined into a single launch file for convenience. 

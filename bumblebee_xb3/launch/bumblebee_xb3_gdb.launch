@@ -1,0 +1,6 @@
+<launch>
+
+  <node pkg="bumblebee_xb3" type="bumblebee_xb3_node" name="bumblebee_xb3_node" output="screen" launch-prefix="gdb -ex run --args">
+  </node>
+
+</launch>
