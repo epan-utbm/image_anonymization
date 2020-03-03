@@ -18,7 +18,7 @@ import numpy as np
 from PIL.Image import core as _imaging 
 from PIL import Image as Img 
 #from PIL import ImageTk
-
+import numpy
 import random
 import cv2
 
@@ -122,15 +122,17 @@ def post_process(frame, outs, conf_threshold, nms_threshold):
         height = box[3]
         final_boxes.append(box)
         left, top, right, bottom = refined_box(left, top, width, height)
-        
-        for n in range(top, bottom, 15):
-            for j in range(left,right, 15):
-                frame[n:n + 15, j:j + 15] = frame[n + (15 // 2)][j + (15 // 2)]
-        
-                
-        
-        # draw_predict(frame, confidences[i], left, top, left + width,
-        #              top + height)
+        x=(left+right)/2
+        y=(top+bottom)/2
+
+        for n in range(top, bottom, 6):
+            for j in range(left,right, 6):
+                if numpy.square(width)*numpy.square(n-y)+ numpy.square(height)*numpy.square(j-x) <= numpy.square(width*height)/4:
+                    frame[n -3:n + 3, j - 3:j + 3] = frame[n][j]
+                   
+                    
+        #draw_predict(frame, confidences[i], left, top, left + width,
+                      #top + height)
         #frame = cv2.GaussianBlur(frame, ((right-left)*2+1, (top-bottom)*2+1), (right-left)/2, (top-bottom)/2)
         #draw_predict(frame, confidences[i], left, top, right, bottom)
 
