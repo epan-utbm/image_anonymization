@@ -34,7 +34,7 @@ Because the three front cameras are special, when you get the picture sequence o
 
 
 4,Put the yoloface into ~/,Because all places that use yoloface use absolute paths ~/yoloface/.Then configure yoloface,follow this link https://github.com/sthanhng/yoloface
-My yoloface source code has been changed from the original version. The original version only detects faces. After detecting the faces, I also perform mosaic processing. So replace utils.py in path ~/yoloface/utils.py with my utils.py
+My yoloface source code has been changed from the original version. The original version only detects faces. After detecting the faces, I also perform mosaic processing. So replace utils.py in path ~/yoloface/utils.py with my  utils.py
 
 
 
