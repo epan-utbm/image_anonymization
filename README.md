@@ -75,4 +75,5 @@ https://github.com/sergiomsilva/alpr-unconstrained
 
 
 Please see my paper for detailed analysis
+https://github.com/epan-utbm/image_anonymization/blob/master/Report.pdf
 
