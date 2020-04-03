@@ -73,3 +73,6 @@ License Plate Detection
 
 https://github.com/sergiomsilva/alpr-unconstrained
 
+
+Please see my paper for detailed analysis
+
