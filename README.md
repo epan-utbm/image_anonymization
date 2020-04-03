@@ -14,7 +14,7 @@ $git clone https://github.com/epan-utbm/image_anonymization.git
 ----------------------------------------------------------------------
 
 
-1,Put the four packages BtoP and btop(bag to picture after mosaic on the face),PtoB and ptob(picture to bag) into ~ / catkin_ws / src.Then
+1,Put the four packages BtoP, btop(bag to picture after mosaic on the face),PtoB and ptob(picture to bag), info1, info2(infomation of  the bag)into ~ / catkin_ws / src.Then
 
 ----------------------------------------------------------------------
   ~/catkin_ws$ catkin_make
