@@ -1,5 +1,7 @@
 # image_anonymization
 
+[![Build Status](https://travis-ci.org/epan-utbm/image_anonymization.svg?branch=master)](https://travis-ci.org/epan-utbm/image_anonymization) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/429c22fbd6b34fd9a972cbd0d4d3ffe3)](https://www.codacy.com/gh/epan-utbm/image_anonymization?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=epan-utbm/image_anonymization&amp;utm_campaign=Badge_Grade) [![License](https://img.shields.io/badge/License-BSD%203--Clause-gree.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 Credit:HongKun ZHENG
 
 YOLO-based image anonymization
